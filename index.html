@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="./index.css" rel="stylesheet ">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="/index.js"></script>
+</head>
+
+<body>
+    <nav class="flexBox">
+        <span class="flexBox">
+            <img src="https://www.logolynx.com/images/logolynx/82/829ba7822e43ebe89394d1ecbbf152b7.jpeg" height="50"
+                width="50" />
+            <b class="nav-title"> Find Your Favorite Dish Recipes Here</b>
+        </span>
+        <ul class="flexBox">
+            <li onclick="addButtonClick('home-page')">Home</li>
+            <li onclick="addButtonClick('add-modal')">Add New Recipe</li>
+            <li onclick="addButtonClick('recipe-page')">View Recipes</li>
+            <li onclick="addButtonClick('About')">About</li>
+        </ul>
+    </nav>
+    <div class="container flexBox">
+        <div class="home-page">
+            <section class="slider-wrapper ">
+                <h3>Top Categories of Recipes</h3>
+                <span onclick="handlePrevClick()" class="slide-arrow" id="slide-arrow-prev">
+                    &#8249;
+                </span>
+
+                <span onclick="handeNextClick()" class="slide-arrow" id="slide-arrow-next">
+                    &#8250;
+                </span>
+                <ul class="slides-container slider" id="slides-container">
+                    <li class="slide">
+                        <div class="slide-box">
+                            <img src="/images/image.jpg" height="350" width="450" />
+                            <div>
+                                <h3>Non Vegetarian </h3>
+                                <p>
+                                    There are some of us for whom a good meal almost always means a meaty affair. With
+                                    so many varied kinds of non-vegetarian dishes, one is sure to be bowled over with
+                                    lip-smacking flavours. Look within the Indian sub-continent and you have unique
+                                    preparations using local regions of the region. Imagine biting into Malabar fish
+                                    curry, Mangalore chicken curry, Goan masala prawns, Kosha Mangsho, butter chicken,
+                                    Laal Maas, Amritsari fish and Rogan Josh to name a few. Turning to International
+                                    cuisines, there are many more dishes to add to the indulgence. Some of those dishes
+                                    are so popular that you commonly find food fanatics dishing them out at the comfort
+                                    of their kitchen. Fish and chips, steaks, barbecued pork ribs, grilled chicken,
+                                    meatballs, - you name it! There is no end to the delectable non vegetarian dishes
+                                    that you can enjoy to your heart's content.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="slide">
+                        <div class="slide-box">
+                            <img src="/images/vegterian.jpg" height="350" width="450" />
+                            <div>
+                                <h3>Vegetarian</h3>
+                                <p>
+                                    Love eating veggies? Us too. Here at A Couple Cooks, we’ve made it our life’s work
+                                    to figure out deliciously healthy ways to eat them. The best part? There are
+                                    infinite ways to make vegetables taste incredible. Here are all our top vegetable
+                                    recipes that make each vegetable taste like a million bucks, from epic roasted
+                                    broccoli that’s as irresistible as French fries, to Caprese salad with fresh juicy
+                                    tomatoes. For each vegetable, we’ve listed a few more of our favorites, in case you
+                                    need more inspiration. Ready to get to it?
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="slide">
+                        <div class="slide-box">
+                            <img src="/images/ice-cream.jfif" height="350" width="350" />
+                            <div>
+                                <h3>Ice Cream</h3>
+                                <p>
+                                    This homemade ice cream recipe is irresistibly creamy! It’s perfect as vanilla or
+                                    use it as a base for other flavors.
+                                    Sure, you can find dozens of ice cream brands at the store. But the best type in the
+                                    world? Homemade ice cream! This homemade ice cream recipe is an easy way to make
+                                    irresistibly delicious ice cream in your own home using all natural ingredients.
+                                    It’s got a bold, sweet flavor and a lusciously creamy texture. This simple method
+                                    works for any type of ice cream maker and you can add mix-ins to your heart’s
+                                    content (that’s our favorite part!). Here’s how to do it!
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="slider-wrapper ">
+                <h3>Ice Creams</h3>
+                <span onclick="handlePrevClick()" class="slide-arrow" id="slide-arrow-prev">
+                    &#8249;
+                </span>
+                <span onclick="handeNextClick()" class="slide-arrow" id="slide-arrow-next">
+                    &#8250;
+                </span>
+                <ul class="slides-container slider" id="slides-container">
+                    <li class="slide"><img src="/images/ice-cream1.jfif" height="350" width="450" /></li>
+                    <li class="slide"> <img src="/images/ice-cream3.jpg" height="350" width="450" /></li>
+                    <li class="slide"> <img src="/images/ice-cream2.jpg" height="350" width="450" /></li>
+                    <li class="slide"><img src="/images/ice-cream.jfif" height="350" width="450" /></li>
+                    <li class="slide"> <img src="/images/ice-cream2.jpg" height="350" width="450" /></li>
+                    <li class="slide"> <img src="/images/ice-cream1.jfif" height="350" width="450" /></li>
+                </ul>
+            </section>
+        </div>
+        <div class="recipe-page">
+            <div class="flexBox">
+                <h3>All Recipes:</h3>
+                <input placeholder="Search your favorite Recipe..." />
+            </div>
+            <div class="recipes-list">
+            </div>
+        </div>
+        <div class="add-modal">
+            <h4><span class="title">Add</span> Your Own Recipe:</h4>
+            <div>
+                <input type="text" disabled placeholder="here will be your recipe id..." name="id" />
+            </div>
+            <div>
+                <input type="text" placeholder="Recipe Name.." name="name" required onchange="handleIdChange()" />
+            </div>
+            <div>
+                <input type="text" placeholder="Ingredients.." name="ingredients" required />
+            </div>
+            <div>
+                <textarea type="text" placeholder="Recipe Details.." name="details" required></textarea>
+            </div>
+            <button class="submit-btn" onclick="handleSubmit()">Submit</button>
+        </div>
+    </div>
+</body>
+
+</html>
