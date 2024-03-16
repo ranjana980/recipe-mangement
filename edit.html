@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="./index.css" rel="stylesheet ">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="/index.js"></script>
+</head>
+
+<body>
+    <nav class="flexBox">
+        <span class="flexBox">
+            <img src="https://www.logolynx.com/images/logolynx/82/829ba7822e43ebe89394d1ecbbf152b7.jpeg" height="40"
+                width="40" />
+            <b class="nav-title">Find Your Favorite Dish Recipes Here</b>
+        </span>
+        <ul class="flexBox">
+            <li><a href="/home.html">Home</a></li>
+            <li><a href="/add.html">Add New Recipe</a></li>
+            <li><a  href="/recipies.html">View Recipes</a></li>
+            <li><a href="/about.html">About</a></li>
+        </ul>
+    </nav>
+    <div class="container flexBox">
+        <div class="add-modal">
+            <h4>Edit Your Own Recipe:</h4>
+            <div>
+                <input type="text" disabled placeholder="here will be your recipe id..." name="id" />
+            </div>
+            <div>
+                <input type="text" placeholder="Recipe Name.." name="name" required />
+            </div>
+            <div>
+                <input type="text" placeholder="Ingredients.." name="ingredients" required />
+            </div>
+            <div>
+                <textarea type="text" placeholder="Recipe Details.." name="details" required></textarea>
+            </div>
+            <button class="submit-btn" onclick="handleEditItem()">Submit</button>
+        </div>
+    </div>
+</body>
+
+</html>

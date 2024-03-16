@@ -3,7 +3,6 @@ body {
   color: white;
 }
 
-
 .flexBox {
   display: flex;
   justify-content: space-between;
@@ -20,8 +19,13 @@ nav {
   gap: 20px;
   background-color: blueviolet;
   padding: 0px 60px 10px 60px;
+  align-items: center;
   margin: 10px 10px 0px 10px;
   border-radius: 12px;
+}
+
+nav span img {
+  border-radius: 50%;
 }
 
 nav ul {
@@ -42,14 +46,14 @@ button {
   border: 2px solid blueviolet;
 }
 
-nav ul li button {
+nav ul li a {
+  text-decoration: none;
   cursor: pointer;
-  background-color: darkgoldenrod;
   color: white;
 }
 
 .nav-title {
-  margin-left: 20px;
+  margin-left: 10px;
   color: white;
 
 }
@@ -71,7 +75,6 @@ textarea {
   flex-direction: column;
   gap: 20px;
   padding: 40px;
-  display: none;
 }
 
 .recipe-card {
@@ -84,10 +87,6 @@ textarea {
   background-color: darkgoldenrod;
   width: 290px;
   cursor: pointer;
-}
-
-.recipe-page {
-  display: none;
 }
 
 .slider {
@@ -113,7 +112,6 @@ body {
   position: relative;
   overflow: hidden;
   padding: 0px 60px 10px 60px;
-  /* top right bottom left */
 }
 
 .slide-box {
@@ -224,7 +222,7 @@ p {
 }
 
 .delete .material-icons,
-.edit .material-icons{
+.edit .material-icons {
   font-size: 16px;
 }
 
@@ -243,3 +241,8 @@ p {
   justify-content: end;
   gap: 20px;
 }
+
+/*  Responsiveness */
+@media screen and (max-width: 768px) {
+  
+}     

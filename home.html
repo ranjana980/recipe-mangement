@@ -14,15 +14,15 @@
 <body>
     <nav class="flexBox">
         <span class="flexBox">
-            <img src="https://www.logolynx.com/images/logolynx/82/829ba7822e43ebe89394d1ecbbf152b7.jpeg" height="50"
-                width="50" />
-            <b class="nav-title"> Find Your Favorite Dish Recipes Here</b>
+            <img src="https://www.logolynx.com/images/logolynx/82/829ba7822e43ebe89394d1ecbbf152b7.jpeg" height="40"
+                width="40" />
+            <b class="nav-title">Find Your Favorite Dish Recipes Here</b>
         </span>
         <ul class="flexBox">
-            <li onclick="addButtonClick('home-page')">Home</li>
-            <li onclick="addButtonClick('add-modal')">Add New Recipe</li>
-            <li onclick="addButtonClick('recipe-page')">View Recipes</li>
-            <li onclick="addButtonClick('About')">About</li>
+            <li><a href="/home.html">Home</a></li>
+            <li><a href="/add.html">Add New Recipe</a></li>
+            <li><a  href="/recipies.html">View Recipes</a></li>
+            <li><a href="/about.html">About</a></li>
         </ul>
     </nav>
     <div class="container flexBox">
@@ -32,7 +32,6 @@
                 <span onclick="handlePrevClick()" class="slide-arrow" id="slide-arrow-prev">
                     &#8249;
                 </span>
-
                 <span onclick="handeNextClick()" class="slide-arrow" id="slide-arrow-next">
                     &#8250;
                 </span>
@@ -112,30 +111,6 @@
                     <li class="slide"> <img src="/images/ice-cream1.jfif" height="350" width="450" /></li>
                 </ul>
             </section>
-        </div>
-        <div class="recipe-page">
-            <div class="flexBox">
-                <h3>All Recipes:</h3>
-                <input placeholder="Search your favorite Recipe..." />
-            </div>
-            <div class="recipes-list">
-            </div>
-        </div>
-        <div class="add-modal">
-            <h4><span class="title">Add</span> Your Own Recipe:</h4>
-            <div>
-                <input type="text" disabled placeholder="here will be your recipe id..." name="id" />
-            </div>
-            <div>
-                <input type="text" placeholder="Recipe Name.." name="name" required onchange="handleIdChange()" />
-            </div>
-            <div>
-                <input type="text" placeholder="Ingredients.." name="ingredients" required />
-            </div>
-            <div>
-                <textarea type="text" placeholder="Recipe Details.." name="details" required></textarea>
-            </div>
-            <button class="submit-btn" onclick="handleSubmit()">Submit</button>
         </div>
     </div>
 </body>
