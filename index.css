@@ -160,12 +160,14 @@ body {
 
 #slide-arrow-prev {
   background-color: none;
+  color: blueviolet;
   left: 10px;
   padding-left: 0.25rem;
   border-radius: 0 2rem 2rem 0;
 }
 
 #slide-arrow-next {
+  color: blueviolet;
   right: 10px;
   padding-left: 0.75rem;
   border-radius: 2rem 0 0 2rem;

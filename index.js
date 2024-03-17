@@ -103,17 +103,18 @@ const handleAddItem = () => {
 }
 
 
-const slidesContainer = document.getElementById("slides-container");
-const slide = document.querySelector(".slide");
-const prevButton = document.getElementById("slide-arrow-prev");
-const nextButton = document.getElementById("slide-arrow-next");
 
-const handeNextClick = () => {
+
+const handeNextClick = (container) => {
+    const slidesContainer = document.getElementById(container);
+    const slide = document.querySelector(".slide");
     const slideWidth = slide.clientWidth;
     slidesContainer.scrollLeft += slideWidth;
 }
 
-const handlePrevClick = () => {
+const handlePrevClick = (container) => {
+    const slidesContainer = document.getElementById(container);
+    const slide = document.querySelector(".slide");
     const slideWidth = slide.clientWidth;
     slidesContainer.scrollLeft -= slideWidth;
 }
