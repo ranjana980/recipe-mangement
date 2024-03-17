@@ -21,11 +21,11 @@
         <ul class="flexBox">
             <li><a href="/home.html">Home</a></li>
             <li><a href="/add.html">Add New Recipe</a></li>
-            <li><a  href="/recipies.html">View Recipes</a></li>
+            <li><a href="/recipies.html">View Recipes</a></li>
             <li><a href="/about.html">About</a></li>
         </ul>
     </nav>
-    <div class="container flexBox">
+    <div class="container flexBox page-body">
         <div class="add-modal">
             <h4>Edit Your Own Recipe:</h4>
             <div>
@@ -33,6 +33,12 @@
             </div>
             <div>
                 <input type="text" placeholder="Recipe Name.." name="name" required />
+            </div>
+            <div>
+                <input type="text" placeholder="Category.." name="category" required />
+            </div>
+            <div>
+                <input type="text" placeholder="Meal.." name="meal" required />
             </div>
             <div>
                 <input type="text" placeholder="Ingredients.." name="ingredients" required />
@@ -43,6 +49,7 @@
             <button class="submit-btn" onclick="handleEditItem()">Submit</button>
         </div>
     </div>
+    <div class="footer flexBox"><b>@Copyright 2024 Built By Ranjana Chaudhary</b></div>
 </body>
 
 </html>

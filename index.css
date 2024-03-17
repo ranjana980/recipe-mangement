@@ -1,6 +1,13 @@
 body {
   margin: 0;
   color: white;
+
+}
+
+::-webkit-scrollbar {
+  background-color: blueviolet;
+  width: 5px;
+  border-radius: 12px;
 }
 
 .flexBox {
@@ -15,38 +22,40 @@ body {
   margin-top: 20px;
 }
 
-nav {
+.nav {
   gap: 20px;
   background-color: blueviolet;
   padding: 0px 60px 10px 60px;
+  position: fixed;
+  width: 89%;
+  margin-left: 2%;
   align-items: center;
-  margin: 10px 10px 0px 10px;
+  z-index: 99;
   border-radius: 12px;
 }
 
-nav span img {
+.nav span img {
   border-radius: 50%;
 }
 
-nav ul {
+.nav ul {
   gap: 20px;
   list-style: none;
 }
 
-nav ul li {
+.nav ul li {
   cursor: pointer;
 }
 
 input,
 textarea,
 button {
-
   padding: 10px;
   border-radius: 12px;
   border: 2px solid blueviolet;
 }
 
-nav ul li a {
+.nav ul li a {
   text-decoration: none;
   cursor: pointer;
   color: white;
@@ -79,8 +88,23 @@ textarea {
 
 .recipe-card {
   background-color: blueviolet;
-  width: 350px;
+  border-radius: 12px;
+  width: 220px;
   padding: 10px;
+  height: 228px;
+}
+
+.recipe-card h4 {
+  color: blueviolet;
+  padding: 10px;
+  bottom: 173px;
+  width: 180px;
+  text-align: center;
+  border-radius: 10px;
+  left: 9px;
+  opacity: .8;
+  position: relative;
+  background: white;
 }
 
 .submit-btn {
@@ -97,21 +121,11 @@ img {
   border-radius: 10px;
 }
 
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  max-width: 1440px;
-  margin: auto;
-}
-
 .slider-wrapper {
   margin: 1rem;
   position: relative;
   overflow: hidden;
-  padding: 0px 60px 10px 60px;
+  padding: 0px 120px 10px 120px; /* top right bottom left */
 }
 
 .slide-box {
@@ -123,7 +137,7 @@ body {
 .slides-container {
   width: 100%;
   display: flex;
-  overflow: scroll;
+  overflow-y: scroll;
   scroll-behavior: smooth;
   list-style: none;
   margin: 0;
@@ -132,6 +146,7 @@ body {
 
 .slides-container::-webkit-scrollbar {
   width: 0;
+  background-color: white;
 }
 
 .slide {
@@ -174,21 +189,6 @@ body {
 }
 
 
-footer {
-  padding: 1em;
-  text-align: center;
-  background-color: #FFDFB9;
-}
-
-footer a {
-  color: inherit;
-  text-decoration: none;
-}
-
-footer .heart {
-  color: #DC143C;
-}
-
 p {
   color: #000;
 }
@@ -196,12 +196,19 @@ p {
 .home-page {
   display: flex;
   width: 100%;
+  padding-top: 60px;
   flex-direction: column;
 }
 
 .slide-box div p {
   font-size: 17px;
   width: 500px;
+}
+
+.recipe-page {
+  min-height: 700px;
+  padding: 60px 16px 60px 16px;
+
 }
 
 .recipes-list {
@@ -211,7 +218,8 @@ p {
 }
 
 .delete,
-.edit {
+.edit,
+.view {
   background-color: whitesmoke;
   height: 20px;
   width: 20px;
@@ -224,6 +232,7 @@ p {
 }
 
 .delete .material-icons,
+.view .material-icons,
 .edit .material-icons {
   font-size: 16px;
 }
@@ -237,14 +246,33 @@ p {
   top: 10px;
 }
 
+.view {
+  color: blue;
+  top: 10px;
+}
+
 .action-btn {
-  margin-top: 20px;
   display: flex;
   justify-content: end;
   gap: 20px;
+  align-items: center;
 }
 
+.action-btn h5 {
+  font-size: 16px;
+}
+
+.footer {
+  background-color: blueviolet;
+  padding: 20px 60px 20px 60px;
+  text-align: center;
+  margin-left: 2%;
+  border-radius: 12px;
+  width: 89%;
+  margin-bottom: 10px;
+}
+
+
+
 /*  Responsiveness */
-@media screen and (max-width: 768px) {
-  
-}     
+@media screen and (max-width: 768px) {}
