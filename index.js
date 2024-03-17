@@ -12,8 +12,8 @@ const getData = () => {
         div.appendChild(img)
         let actionBtn = document.createElement('div')
         actionBtn.className = "action-btn"
-        let spanView=document.createElement('span')
-        spanView.className="view"
+        let spanView = document.createElement('span')
+        spanView.className = "view"
         spanView.addEventListener('click', function (e) {
             window.location.replace(`/edit.html?${item?.id}`)
         })
@@ -95,7 +95,7 @@ const handleAddItem = () => {
     const meal = document.getElementsByName('meal')[0].value
     if (name.trim() && ingredients && details && category && meal) {
         const localData = JSON.parse(localStorage.getItem("data")) || []
-        localData.push({ name, ingredients, details, id,meal, category })
+        localData.push({ name, ingredients, details, id, meal, category })
         localStorage.setItem('data', JSON.stringify(localData))
         alert('Recipe has been added')
         window.location.replace("./recipies.html")
@@ -117,6 +117,17 @@ const handlePrevClick = (container) => {
     const slide = document.querySelector(".slide");
     const slideWidth = slide.clientWidth;
     slidesContainer.scrollLeft -= slideWidth;
+}
+
+const handleMenu = (showMenu, closeMenu) => {
+    const show = showMenu.split('#')
+    const close = closeMenu.split('#')
+    let menuBtn = document.querySelector(showMenu)
+    menuBtn.className = menuBtn.className !== `hide-${show[1]}` ? `hide-${show[1]}` : `show-${show[1]}`
+    let closeBtn = document.querySelector(closeMenu)
+    closeBtn.className = closeBtn.className !== `hide-${close[1]}` ? `hide-${close[1]}` : `show-${close[1]}`
+    let mobNav = document.querySelector('#mobNav')
+    mobNav.className = mobNav.className !== `hide-close` ? `hide-close` : `show-close`
 }
 
 window.onload = () => {

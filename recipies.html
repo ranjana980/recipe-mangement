@@ -18,13 +18,26 @@
                 width="40" />
             <b class="nav-title">Find Your Favorite Dish Recipes Here</b>
         </span>
-        <ul class="flexBox">
+        <span class="show-menu" onclick="handleMenu('#menu','#close')" id="menu"> <i
+                class="material-icons">reorder</i></span>
+        <span class="hide-close" onclick="handleMenu('#close','#menu')" id="close">
+            <i class="material-icons">close</i>
+        </span>
+        <ul class="flexBox nav-items">
             <li><a href="/home.html">Home</a></li>
             <li><a href="/add.html">Add New Recipe</a></li>
             <li><a href="/recipies.html">View Recipes</a></li>
             <li><a href="/about.html">About</a></li>
         </ul>
     </div>
+    <span class="hide-close" id="mobNav">
+        <ul class="flexBox nav-items-mobile" >
+            <li><a href="/home.html">Home</a></li>
+            <li><a href="/add.html">Add New Recipe</a></li>
+            <li><a href="/recipies.html">View Recipes</a></li>
+            <li><a href="/about.html">About</a></li>
+        </ul>
+    </span>
     <div class="recipe-page page-body">
         <div class="flexBox">
             <h3>All Recipes:</h3>

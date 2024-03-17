@@ -38,12 +38,12 @@ body {
   border-radius: 50%;
 }
 
-.nav ul {
+.nav-items {
   gap: 20px;
   list-style: none;
 }
 
-.nav ul li {
+.nav-items li {
   cursor: pointer;
 }
 
@@ -55,7 +55,7 @@ button {
   border: 2px solid blueviolet;
 }
 
-.nav ul li a {
+.nav-items li a {
   text-decoration: none;
   cursor: pointer;
   color: white;
@@ -64,6 +64,7 @@ button {
 .nav-title {
   margin-left: 10px;
   color: white;
+  font-size: 12px;
 
 }
 
@@ -125,7 +126,8 @@ img {
   margin: 1rem;
   position: relative;
   overflow: hidden;
-  padding: 0px 120px 10px 120px; /* top right bottom left */
+  padding: 0px 120px 10px 120px;
+  /* top right bottom left */
 }
 
 .slide-box {
@@ -272,7 +274,270 @@ p {
   margin-bottom: 10px;
 }
 
+.hide-menu {
+  display: none;
+}
 
+.show-menu {
+  display: none;
+}
+
+.show-close {
+  display: none;
+}
+
+.hide-close {
+  display: none;
+}
+
+.nav-items-mobile {
+  display: none;
+}
 
 /*  Responsiveness */
-@media screen and (max-width: 768px) {}
+@media (min-width: 320px) and (max-width:768px) {
+  .nav-items-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: blueviolet;
+    list-style: none;
+    position: fixed;
+    z-index: 999;
+    top: 55px;
+    width: 89%;
+    margin-left: 2%;
+    align-items: center;
+    color: white;
+    text-align: center;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px 10px 10px 10px;
+  }
+
+  .nav {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .nav-items-mobile li {
+    padding: 5px;
+    border-radius: 12px;
+    width: 89%;
+    color: white;
+    background-color: white;
+  }
+
+  .nav-items-mobile li a {
+    text-decoration: none;
+  }
+
+  .nav span img {
+    margin-top: 5px;
+  }
+
+  .hide-menu {
+    display: none;
+  }
+
+  .show-close {
+    display: block;
+  }
+
+  .hide-close {
+    display: none;
+  }
+
+  .show-menu {
+    display: block;
+    font-size: 25px !important;
+  }
+
+  .nav {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .nav-items {
+    display: none;
+  }
+
+  .footer {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width:320px) and (max-width:375px) {
+  .slider-wrapper {
+    padding: 0px;
+    margin: 0;
+  }
+  .slide img{
+    height: 290px;
+    width: 290px;
+  }
+
+  .slide-box {
+    width: 302px;
+    gap: 10px;
+  }
+
+  .slide-box img {
+    height: 150px;
+    width: 150px;
+    margin-top: 30px;
+  }
+
+  .slide-box div p {
+    font-size: 10px;
+    width: 147px;
+  }
+
+  .slide-box div h3 {
+    margin: 0;
+  }
+
+  #slide-arrow-prev {
+    padding-left: 0px;
+    left: 0px;
+  }
+
+  #slide-arrow-next {
+    padding-left: 0px;
+    right: 0px;
+  }
+}
+
+@media (min-width:375px) and (max-width:425px) {
+  .slider-wrapper {
+    padding: 0px;
+    margin: 0;
+  }
+
+  .slide img{
+    height: 290px;
+    width: 290px;
+  }
+
+  .slide-box {
+    width: 362px;
+    gap: 10px;
+  }
+
+  .slide-box img {
+    height: 150px;
+    width: 150px;
+    margin-top: 30px;
+  }
+
+  .slide-box div p {
+    font-size: 10px;
+    width: 200px;
+  }
+
+  .slide-box div h3 {
+    margin: 0;
+  }
+
+  #slide-arrow-prev {
+    padding-left: 0px;
+    left: 0px;
+  }
+
+  #slide-arrow-next {
+    padding-left: 0px;
+    right: 0px;
+  }
+}
+
+@media (min-width:425px) and (max-width:768px) {
+  .slider-wrapper {
+    padding: 0px;
+    margin: 0;
+  }
+
+  
+  .slide img{
+    height: 180px;
+    width: 180px;
+  }
+
+  .slide-box {
+    width: 400px;
+    gap: 10px;
+  }
+
+  .slide-box img {
+    height: 150px;
+    width: 150px;
+    margin-top: 30px;
+  }
+
+  .slide-box div p {
+    font-size: 12px;
+    width: 230px;
+  }
+
+  .slide-box div h3 {
+    margin: 0;
+  }
+
+  #slide-arrow-prev {
+    padding-left: 0px;
+    left: 0px;
+  }
+
+  #slide-arrow-next {
+    padding-left: 0px;
+    right: 0px;
+  }
+}
+
+@media (min-width:768px) and (max-width:1024px) {
+  .slider-wrapper {
+    padding-left: 10px;
+  }
+
+  .slide img{
+    height: 240px;
+    width: 240px;
+  }
+
+  .nav {
+    width: 94%;
+  }
+  .nav-items-mobile{
+    width: 94%;
+  }
+
+  .slide-box {
+    width: 740px;
+    gap: 30px;
+  }
+
+  .slide-box img {
+    height: 230px;
+    width: 230px;
+    margin-top: 30px;
+  }
+
+  .slide-box div p {
+    font-size: 13px;
+    width: 400px;
+  }
+
+  .slide-box div h3 {
+    margin: 0;
+  }
+
+  #slide-arrow-prev {
+    padding-left: 0px;
+    left: 20px;
+  }
+
+  #slide-arrow-next {
+    padding-left: 0px;
+    right: 20px;
+  }
+}
