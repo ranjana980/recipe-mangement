@@ -109,6 +109,7 @@ const handeNextClick = (container) => {
     const slidesContainer = document.getElementById(container);
     const slide = document.querySelector(".slide");
     const slideWidth = slide.clientWidth;
+    console.log(slideWidth,'slideWidth')
     slidesContainer.scrollLeft += slideWidth;
 }
 
@@ -116,6 +117,7 @@ const handlePrevClick = (container) => {
     const slidesContainer = document.getElementById(container);
     const slide = document.querySelector(".slide");
     const slideWidth = slide.clientWidth;
+    console.log(slideWidth,'slideWidth')
     slidesContainer.scrollLeft -= slideWidth;
 }
 
