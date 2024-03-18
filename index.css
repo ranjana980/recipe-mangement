@@ -71,15 +71,19 @@ button {
 h3 {
   color: blueviolet;
 }
-
-input,
-textarea {
-  width: 290px;
+input,textarea{
+  width: 100%;
 }
+.form-control {
+  gap: 40px;
+  width: 390px;
+}
+
+
 
 .add-modal {
   background-color: blueviolet;
-  margin-top: 40px;
+  margin-top: 80px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -109,9 +113,13 @@ textarea {
 }
 
 .submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: darkgoldenrod;
-  width: 290px;
+  width: 100%;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .slider {
@@ -371,10 +379,18 @@ p {
   }
 }
 
-@media (min-width:320px) and (max-width:375px) {
+@media (min-width:320px) and (max-width:374px) {
   .slider-wrapper {
     padding: 0px;
     margin: 0;
+  }
+  .form-control {
+    gap: 40px;
+    width: 215px;
+}
+
+  .nav {
+    width: 89%;
   }
 
   .slide img {
@@ -413,12 +429,17 @@ p {
   }
 }
 
-@media (min-width:375px) and (max-width:425px) {
+@media (min-width:375px) and (max-width:424px) {
   .slider-wrapper {
     padding: 0px;
     margin: 0;
   }
-  .footer{
+  .form-control {
+    gap: 40px;
+    width: 270px;
+}
+
+  .footer {
     font-size: 12px;
   }
 
@@ -442,6 +463,10 @@ p {
     margin-top: 30px;
   }
 
+  .nav {
+    width: 91%;
+  }
+
   .slide-box div p {
     font-size: 10px;
     width: 200px;
@@ -463,12 +488,20 @@ p {
   }
 }
 
-@media (min-width:425px) and (max-width:768px) {
+@media (min-width:425px) and (max-width:767px) {
+  .nav {
+    width: 91%;
+  }
+
+  .form-control {
+    gap: 40px;
+    width: 320px;
+}
+
   .slider-wrapper {
     padding: 0px;
     margin: 0;
   }
-
 
   .slide img {
     height: 180px;
@@ -506,7 +539,11 @@ p {
   }
 }
 
-@media (min-width:768px) and (max-width:1024px) {
+@media (min-width:768px) and (max-width:1023px) {
+  .nav {
+    width: 94%;
+  }
+
   .slider-wrapper {
     padding-left: 10px;
   }
@@ -516,9 +553,58 @@ p {
     width: 240px;
   }
 
-  .nav {
+
+
+  .nav-items-mobile {
     width: 94%;
   }
+
+  .slide-box {
+    width: 740px;
+    gap: 30px;
+  }
+
+  .slide-box img {
+    height: 230px;
+    width: 230px;
+    margin-top: 30px;
+  }
+
+  .slide-box div p {
+    font-size: 13px;
+    width: 400px;
+  }
+
+  .slide-box div h3 {
+    margin: 0;
+  }
+
+  #slide-arrow-prev {
+    padding-left: 0px;
+    left: 20px;
+  }
+
+  #slide-arrow-next {
+    padding-left: 0px;
+    right: 20px;
+  }
+}
+
+@media (min-width:1024px) and (max-width:1439px) {
+  .nav {
+    width: 85%;
+  }
+
+  .slider-wrapper {
+    padding-left: 10px;
+  }
+
+  .slide img {
+    height: 240px;
+    width: 240px;
+  }
+
+
 
   .nav-items-mobile {
     width: 94%;

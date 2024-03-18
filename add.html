@@ -31,7 +31,7 @@
         </ul>
     </div>
     <span class="hide-close" id="mobNav">
-        <ul class="flexBox nav-items-mobile" >
+        <ul class="flexBox nav-items-mobile">
             <li><a href="/home.html">Home</a></li>
             <li><a href="/add.html">Add New Recipe</a></li>
             <li><a href="/recipies.html">View Recipes</a></li>
@@ -42,25 +42,29 @@
     <div class="container flexBox page-body">
         <div class="add-modal">
             <h4><span class="title">Add</span> Your Own Recipe:</h4>
-            <div>
+            <div class="form-control">
                 <input type="text" disabled placeholder="here will be your recipe id..." name="id" />
             </div>
-            <div>
+            <div class="form-control">
                 <input type="text" placeholder="Recipe Name.." name="name" required onchange="handleIdChange()" />
             </div>
-            <div>
-                <input type="text" placeholder="Category.." name="category" required  />
+            <div class="flexBox form-control">
+                <div>
+                    <input type="text" placeholder="Category.." name="category" required />
+                </div>
+                <div>
+                    <input type="text" placeholder="Meal.." name="meal" required />
+                </div>
             </div>
-            <div>
-                <input type="text" placeholder="Meal.." name="meal" required />
+            <div class="form-control">
+                <textarea type="text" placeholder="Ingredients.." name="ingredients" required rows="4"></textarea>
             </div>
-            <div>
-                <input type="text" placeholder="Ingredients.." name="ingredients" required />
+            <div class="form-control">
+                <textarea type="text" placeholder="Recipe Details.." name="details" rows="10" required></textarea>
             </div>
-            <div>
-                <textarea type="text" placeholder="Recipe Details.." name="details" required></textarea>
+            <div class="form-control">
+                <button class="submit-btn" onclick="handleAddItem()">Submit</button>
             </div>
-            <button class="submit-btn" onclick="handleAddItem()">Submit</button>
         </div>
     </div>
     <div class="footer flexBox"><b>@Copyright 2024 Built By Ranjana Chaudhary</b></div>
