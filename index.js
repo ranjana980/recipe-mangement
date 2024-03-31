@@ -1,45 +1,62 @@
 
-const getData = () => {
+const getData = (search) => {
     const localData = JSON.parse(localStorage.getItem("data")) || []
     const recipeList = document?.getElementsByClassName('recipes-list')[0]
-    localData.forEach((item) => {
-        let div = document.createElement('div')
-        div.className = 'recipe-card'
-        let img = document.createElement('img')
-        img.src = "/images/image.jpg"
-        img.height = 150
-        img.width = 200
-        div.appendChild(img)
-        let actionBtn = document.createElement('div')
-        actionBtn.className = "action-btn"
-        let spanView = document.createElement('span')
-        spanView.className = "view"
-        spanView.addEventListener('click', function (e) {
-            window.location.replace(`/edit.html?${item?.id}`)
+    recipeList?.querySelectorAll('recipe-card').forEach(n => n.remove())
+    const searchList = search ? localData.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()) || item.name.toUpperCase().includes(search.toUpperCase())) : localData
+    if (searchList.length) {
+        searchList.forEach((item) => {
+            let div = document.createElement('div')
+            div.className = 'recipe-card'
+            let img = document.createElement('img')
+            img.src = "/images/image.jpg"
+            img.height = 150
+            img.width = 200
+            div.appendChild(img)
+            let actionBtn = document.createElement('div')
+            actionBtn.className = "action-btn"
+            let spanView = document.createElement('span')
+            spanView.className = "view"
+            spanView.addEventListener('click', function (e) {
+                window.location.replace(`/edit.html?${item?.id}`)
+            })
+            spanView.innerHTML = `<i class="material-icons">import_contacts</i>`
+            actionBtn.appendChild(spanView)
+            let meal = document.createElement('h5')
+            meal.textContent = item?.meal?.toLowerCase() || ""
+            actionBtn.appendChild(meal)
+            let spanEdit = document.createElement('span');
+            spanEdit.className = "edit"
+            spanEdit.addEventListener('click', function (e) {
+                window.location.replace(`/edit.html?${item?.id}`)
+            })
+            spanEdit.innerHTML = `<i class="material-icons">&#xe22b;</i>`
+            actionBtn.appendChild(spanEdit)
+            let spanDelete = document.createElement('span');
+            spanDelete.className = "delete"
+            spanDelete.addEventListener('click', function () { handleDeleteItem(item?.id) })
+            spanDelete.innerHTML = `<i class="material-icons ">&#xe872;</i>`
+            actionBtn.appendChild(spanDelete)
+            div.appendChild(actionBtn)
+            let h4 = document.createElement('h4')
+            h4.textContent = item.name
+            div.appendChild(h4)
+            recipeList.appendChild(div)
         })
-        spanView.innerHTML = `<i class="material-icons">import_contacts</i>`
-        actionBtn.appendChild(spanView)
-        let meal = document.createElement('h5')
-        meal.textContent = item?.meal?.toLowerCase() || ""
-        actionBtn.appendChild(meal)
-        let spanEdit = document.createElement('span');
-        spanEdit.className = "edit"
-        spanEdit.addEventListener('click', function (e) {
-            window.location.replace(`/edit.html?${item?.id}`)
-        })
-        spanEdit.innerHTML = `<i class="material-icons">&#xe22b;</i>`
-        actionBtn.appendChild(spanEdit)
-        let spanDelete = document.createElement('span');
-        spanDelete.className = "delete"
-        spanDelete.addEventListener('click', function () { handleDeleteItem(item?.id) })
-        spanDelete.innerHTML = `<i class="material-icons ">&#xe872;</i>`
-        actionBtn.appendChild(spanDelete)
-        div.appendChild(actionBtn)
-        let h4 = document.createElement('h4')
-        h4.textContent = item.name
-        div.appendChild(h4)
-        recipeList.appendChild(div)
-    })
+    }
+    else {
+        const h1 = document.createElement('h1')
+        h1.textContent = "You have not any recipe please add first"
+        h1.style = 'text-align:"center"'
+        recipeList.appendChild(h1)
+    }
+
+}
+
+const handleSearch = () => {
+    const search = document.getElementsByName('search')[0].value
+    getData(search)
+
 }
 
 const handleViewItem = (item) => {
@@ -197,9 +214,6 @@ const makeDataSlider = () => {
             li.className = 'slide'
             let img = document.createElement('img')
             img.src = subItem
-            // let h4 = document.createElement('h4')
-            // h4.textContent = subItem.name
-            // li.appendChild(h4)
             li.appendChild(img)
             ul.appendChild(li)
         })
@@ -209,7 +223,7 @@ const makeDataSlider = () => {
 }
 
 window.onload = () => {
-    window.location.pathname === '/recipies.html' ? getData()
+    window.location.pathname === '/recipies.html' ? getData('')
         : window.location.pathname === '/edit.html' ?
             handleViewItem(window.location.search.replace('?', '')) :
             window.location.pathname === '/home.html' ?
