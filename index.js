@@ -1,3 +1,47 @@
+function createElement(tag, className, id, textContent, innerHTML, attributes = {}, eventListeners = []) {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    if (id) element.id = id;
+    if (innerHTML) element.innerHTML = innerHTML;
+    if (textContent) element.textContent = textContent;
+    Object.keys(attributes).forEach(attr => element.setAttribute(attr, attributes[attr]));
+    eventListeners.forEach(({ type, handler }) => element.addEventListener(type, handler));
+    return element;
+}
+
+function createRecipeCard(item) {
+    const div = createElement('div', 'recipe-card');
+
+    const img = createElement('img', null, null, null, null, { src: "/images/image.jpg", height: 150, width: 200 });
+    div.appendChild(img);
+
+    const actionBtn = createElement('div', 'action-btn');
+
+    const spanView = createElement('span', 'view', null, null, '<i class="material-icons">import_contacts</i>', {}, [
+        { type: 'click', handler: () => window.location.replace(`/edit.html?${item?.id}`) }
+    ]);
+    actionBtn.appendChild(spanView);
+
+    const meal = createElement('h5', null, null, null, item?.meal?.toLowerCase() || "");
+    actionBtn.appendChild(meal);
+
+    const spanEdit = createElement('span', 'edit', null, null, '<i class="material-icons">&#xe22b;</i>', {}, [
+        { type: 'click', handler: () => window.location.replace(`/edit.html?${item?.id}`) }
+    ]);
+    actionBtn.appendChild(spanEdit);
+
+    const spanDelete = createElement('span', 'delete', null, null, '<i class="material-icons ">&#xe872;</i>', {}, [
+        { type: 'click', handler: () => handleDeleteItem(item?.id) }
+    ]);
+    actionBtn.appendChild(spanDelete);
+
+    div.appendChild(actionBtn);
+
+    const h4 = createElement('h4', null, null, null, item.name);
+    div.appendChild(h4);
+
+    return div;
+}
 
 const getData = (search) => {
     const localData = JSON.parse(localStorage.getItem("data")) || []
@@ -6,48 +50,11 @@ const getData = (search) => {
     const searchList = search ? localData.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()) || item.name.toUpperCase().includes(search.toUpperCase())) : localData
     if (searchList.length) {
         searchList.forEach((item) => {
-            let div = document.createElement('div')
-            div.className = 'recipe-card'
-            let img = document.createElement('img')
-            img.src = "/images/image.jpg"
-            img.height = 150
-            img.width = 200
-            div.appendChild(img)
-            let actionBtn = document.createElement('div')
-            actionBtn.className = "action-btn"
-            let spanView = document.createElement('span')
-            spanView.className = "view"
-            spanView.addEventListener('click', function (e) {
-                window.location.replace(`/edit.html?${item?.id}`)
-            })
-            spanView.innerHTML = `<i class="material-icons">import_contacts</i>`
-            actionBtn.appendChild(spanView)
-            let meal = document.createElement('h5')
-            meal.textContent = item?.meal?.toLowerCase() || ""
-            actionBtn.appendChild(meal)
-            let spanEdit = document.createElement('span');
-            spanEdit.className = "edit"
-            spanEdit.addEventListener('click', function (e) {
-                window.location.replace(`/edit.html?${item?.id}`)
-            })
-            spanEdit.innerHTML = `<i class="material-icons">&#xe22b;</i>`
-            actionBtn.appendChild(spanEdit)
-            let spanDelete = document.createElement('span');
-            spanDelete.className = "delete"
-            spanDelete.addEventListener('click', function () { handleDeleteItem(item?.id) })
-            spanDelete.innerHTML = `<i class="material-icons ">&#xe872;</i>`
-            actionBtn.appendChild(spanDelete)
-            div.appendChild(actionBtn)
-            let h4 = document.createElement('h4')
-            h4.textContent = item.name
-            div.appendChild(h4)
-            recipeList.appendChild(div)
+            recipeList.appendChild(createRecipeCard(item))
         })
     }
     else {
-        const h1 = document.createElement('h1')
-        h1.textContent = "You have not any recipe please add first"
-        h1.style = 'text-align:"center"'
+        const h1 = createElement('h1', 'text-center', null, "You have not any recipe please add first")
         recipeList.appendChild(h1)
     }
 
@@ -56,7 +63,6 @@ const getData = (search) => {
 const handleSearch = () => {
     const search = document.getElementsByName('search')[0].value
     getData(search)
-
 }
 
 const handleViewItem = (item) => {
@@ -80,12 +86,7 @@ const handleEditItem = () => {
     if (name.trim() && ingredients && details && category && meal) {
         const localData = JSON.parse(localStorage.getItem("data")) || []
         const index = localData.findIndex(item => item.id === id)
-        localData[index]['id'] = id
-        localData[index]['name'] = name
-        localData[index]['ingredients'] = ingredients
-        localData[index]['details'] = details
-        localData[index]['category'] = category
-        localData[index]['meal'] = meal
+        localData[index] = { id, name, ingredients, details, category, meal }
         localStorage.setItem('data', JSON.stringify(localData))
         alert('Recipe has been Updated')
         window.location.replace("./recipies.html")
@@ -148,6 +149,7 @@ const handleMenu = (showMenu, closeMenu) => {
     let mobNav = document.querySelector('#mobNav')
     mobNav.className = mobNav.className !== `hide-close` ? `hide-close` : `show-close`
 }
+
 const sliderData = [{
     title: "Daal",
     items: [
@@ -184,36 +186,26 @@ const sliderData = [{
         "./images/weekend-roti.jpeg",
     ]
 }]
+
 const makeDataSlider = () => {
     let homePage = document.querySelector('.home-page')
     sliderData.map(({ title, items }, index) => {
-        let section = document.createElement('section')
-        section.className = "slider-wrapper"
-        let h3 = document.createElement('h3')
-        h3.textContent = title
+        let section = createElement('section', 'slider-wrapper')
+
+        let h3 = createElement('h3', null, null, title)
         section.appendChild(h3)
-        let prevBtn = document.createElement('span')
-        prevBtn.addEventListener('click', function () { handlePrevClick(`slides-container${index + 1}`) })
-        prevBtn.className = "slide-arrow"
-        prevBtn.id = "slide-arrow-prev"
-        prevBtn.innerHTML = '&#8249;'
+
+        let prevBtn = createElement('span', "slide-arrow", "slide-arrow-prev", null, '&#8249;', {}, [{ type: 'click', handler: function () { handlePrevClick(`slides-container${index + 1}`) } }])
         section.appendChild(prevBtn)
-        let nextBtn = document.createElement('span')
-        nextBtn.addEventListener('click', function (e) {
-            handeNextClick(`slides-container${index + 1}`)
-        })
-        nextBtn.className = "slide-arrow"
-        nextBtn.id = "slide-arrow-next"
-        nextBtn.innerHTML = '&#8250;';
+
+        let nextBtn = createElement('span', "slide-arrow", "slide-arrow-next", null, '&#8250;', {}, [{ type: 'click', handler: function () { handeNextClick(`slides-container${index + 1}`) } }])
         section.appendChild(nextBtn)
-        let ul = document.createElement('ul')
-        ul.className = "slides-container slider"
-        ul.id = `slides-container${index + 1}`
+
+        let ul = createElement('ul',"slides-container",`slides-container${index + 1}`)
+
         items.map((subItem) => {
-            let li = document.createElement('li')
-            li.className = 'slide'
-            let img = document.createElement('img')
-            img.src = subItem
+            let li = createElement('li','slide')
+            let img = createElement('img',null,null,null,null,{src:subItem})
             li.appendChild(img)
             ul.appendChild(li)
         })
@@ -223,11 +215,15 @@ const makeDataSlider = () => {
 }
 
 window.onload = () => {
-    window.location.pathname === '/recipies.html' ? getData('')
-        : window.location.pathname === '/edit.html' ?
-            handleViewItem(window.location.search.replace('?', '')) :
-            window.location.pathname === '/home.html' ?
-                makeDataSlider() : ""
-
+    switch (window.location.pathname) {
+        case '/recipies.html':
+            return getData('')
+        case '/edit.html':
+            return handleViewItem(window.location.search.replace('?', ''))
+        case '/home.html':
+            return makeDataSlider()
+        default:
+            return ""
+    }
 }
 

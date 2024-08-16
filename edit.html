@@ -12,23 +12,25 @@
 </head>
 
 <body>
-    <div class="flexBox nav">
-        <span class="flexBox">
-            <img src="https://www.logolynx.com/images/logolynx/82/829ba7822e43ebe89394d1ecbbf152b7.jpeg" height="40"
-                width="40" />
-            <b class="nav-title">Find Your Favorite Dish Recipes Here</b>
-        </span>
-        <span class="show-menu" onclick="handleMenu('#menu','#close')" id="menu"> <i
-                class="material-icons">reorder</i></span>
-        <span class="hide-close" onclick="handleMenu('#close','#menu')" id="close">
-            <i class="material-icons">close</i>
-        </span>
-        <ul class="flexBox nav-items">
-            <li><a href="/home.html">Home</a></li>
-            <li><a href="/add.html">Add New Recipe</a></li>
-            <li><a href="/recipies.html">View Recipes</a></li>
-        </ul>
-    </div>
+    <nav class="nav">
+        <div class="container flexBox">
+            <span class="flexBox">
+                <img src="https://www.logolynx.com/images/logolynx/82/829ba7822e43ebe89394d1ecbbf152b7.jpeg" height="40"
+                    width="40" />
+                <b class="nav-title">Find Your Favorite Dish Recipes Here</b>
+            </span>
+            <span class="show-menu" onclick="handleMenu('#menu','#close')" id="menu"> <i
+                    class="material-icons">reorder</i></span>
+            <span class="hide-close" onclick="handleMenu('#close','#menu')" id="close">
+                <i class="material-icons">close</i>
+            </span>
+            <ul class="flexBox nav-items">
+                <li><a href="/home.html">Home</a></li>
+                <li><a href="/add.html">Add New Recipe</a></li>
+                <li><a href="/recipies.html">View Recipes</a></li>
+            </ul>
+        </div>
+    </nav>
     <span class="hide-close" id="mobNav">
         <ul class="flexBox nav-items-mobile">
             <li><a href="/home.html">Home</a></li>
@@ -43,7 +45,7 @@
                 <input type="text" disabled placeholder="here will be your recipe id..." name="id" />
             </div>
             <div class="form-control">
-                <input type="text" placeholder="Recipe Name.." name="name" required  />
+                <input type="text" placeholder="Recipe Name.." name="name" required />
             </div>
             <div class="flexBox form-control">
                 <div>
@@ -64,7 +66,7 @@
             </div>
         </div>
     </div>
-    <div class="footer flexBox"><b>@Copyright 2024 Built By Ranjana Chaudhary</b></div>
+    <footer class="footer flexBox"><b>@Copyright 2024 Built By Ranjana Chaudhary</b></footer>
 </body>
 
 </html>
